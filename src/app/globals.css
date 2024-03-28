@@ -26,6 +26,51 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+@layer base {
+  .inter {
+    font-family: var(--inter-font), sans-serif;
+  }
+
+  .avenir-next {
+    font-family: var(--avenir-next-font), sans-serif;
+  }
+}
+
+@layer components {
+
+  .container {
+    @apply mx-auto max-w-[1027px] w-[calc(100%_-_48px)];
+  }
+
+  .table-wrapper {
+    @apply w-full;
+
+    table {
+      @apply w-full;
+    }
+
+    th {
+      @apply font-normal text-xs tracking-[0.02em] uppercase text-gray-600 pb-1 text-left px-5;
+    }
+
+    thead tr {
+      @apply border-b border-b-gray-100/40 ;
+    }
+
+    tbody {
+      @apply divide-y divide-gray-100/40;
+    }
+
+    td {
+      @apply h-[72px] px-5;
+    }
+
+    td:first-of-type, th:first-of-type {
+      @apply pl-0;
+    }
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
