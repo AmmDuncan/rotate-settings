@@ -10,7 +10,6 @@ import { useAuth } from "@/components/AuthContext";
 
 export function Navbar() {
   const { user } = useAuth();
-  console.log(user);
 
   return (
     <Flex as="nav" bg="white" px="6" gap={10} minH="76px" alignItems="center" justifyContent="space-between">
