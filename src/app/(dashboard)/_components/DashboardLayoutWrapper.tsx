@@ -17,7 +17,7 @@ export function DashboardLayoutWrapper({
   // if token is not stored, start login
   React.useLayoutEffect(() => {
     const storedAccessToken = localStorage.getItem("accessToken");
-    if (!storedAccessToken) login(`${window.location.origin}/auth/login`);
+    if (!storedAccessToken) login(`${window.location.origin}/auth/login`); // redirect to /auth/login for verification
   }, []);
 
   return (
