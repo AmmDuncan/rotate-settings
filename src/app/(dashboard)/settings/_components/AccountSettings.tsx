@@ -14,7 +14,6 @@ import { convertFileToBase64 } from "@/utils/helpers";
 
 import { SectionHeader } from "./SectionHeader";
 import { CompanyLogoInput } from "./CompanyLogoInput";
-import Head from "next/head";
 
 const AccountFormSchema = z.object({
   display_name: z.string().min(1, "Company name is required"),

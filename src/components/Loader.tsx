@@ -5,7 +5,7 @@ import React from "react";
 export function Loader(props: React.ComponentProps<typeof Grid>) {
   return (
     <Grid {...props} placeContent="center">
-      <HashLoader color={"#5E6DFA"} />
+      <HashLoader color={"#7c87f5"} />
     </Grid>
   );
 }
