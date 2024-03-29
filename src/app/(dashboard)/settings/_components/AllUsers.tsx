@@ -91,10 +91,10 @@ function NameCell({ row }: TableCellProps<UserData>) {
     <Flex gap="2" alignItems="center">
       <Avatar w="30px" h="30px" name={name} src={picture} />
       <Grid flexShrink="1">
-        <Text fontSize="md" fontWeight="500" noOfLines={1}>
+        <Text color={"gray.900"} fontSize="md" noOfLines={1}>
           {name}
         </Text>
-        <Text fontSize="sm" noOfLines={1}>
+        <Text color={"gray.400"} fontSize="sm" noOfLines={1}>
           {email}
         </Text>
       </Grid>
