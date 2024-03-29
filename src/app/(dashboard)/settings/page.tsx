@@ -11,7 +11,7 @@ export default function Settings() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const activeTabIndex = Number(searchParams.get("tab") ?? 0);
-  const tabs = React.useMemo(() => ["Account", "User Management"], []);
+  const tabs = React.useMemo(() => ["Account", "User management"], []);
 
   // Update page title
   React.useEffect(() => {
