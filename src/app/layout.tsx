@@ -7,6 +7,7 @@ import { Providers } from "@/components/Providers";
 
 import type { Metadata } from "next";
 import cx from "clsx";
+import { Suspense } from "react";
 
 const inter = Inter({ subsets: ["latin"], variable: "--inter-font" });
 const openSans = Open_Sans({ subsets: ["latin"], variable: "--open-sans-font" });
@@ -39,7 +40,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cx(openSans.className, inter.variable, avenirNext.variable)}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Suspense>{children}</Suspense>
+        </Providers>
       </body>
     </html>
   );

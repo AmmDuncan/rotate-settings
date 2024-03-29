@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { z } from "zod";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Controller, useForm } from "react-hook-form";
 import { Button, useToast } from "@chakra-ui/react";
@@ -10,26 +9,9 @@ import { Input, Loader } from "@/components";
 import { useServices } from "@/services";
 import { convertFileToBase64 } from "@/utils/helpers";
 
-import { Section, SectionHeader, CompanyLogoInput } from ".";
-
-const AccountFormSchema = z.object({
-  display_name: z.string().min(1, "Company name is required"),
-  contact_name: z.string().min(1, "Contact name is required"),
-  contact_email: z.string().min(1, "Email is required"),
-  industry: z.string().min(1, "Industry is required"),
-  company_logo: z
-    .union([z.instanceof(File), z.string()])
-    .optional()
-    .nullable(),
-});
-type AccountFormInput = z.infer<typeof AccountFormSchema>;
-type AccountFormDefaults = {
-  display_name: string;
-  company_logo: string;
-  contact_name: string;
-  contact_email: string;
-  industry: string;
-};
+import { CompanyLogoInput, Section, SectionHeader } from ".";
+import { AccountFormSchema, AccountFormDefaults, AccountFormInput } from "@/utils/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 export function AccountSettings() {
   const queryClient = useQueryClient();
@@ -93,7 +75,10 @@ function AccountForm({
   onSave: (payload: AccountFormInput) => void;
   isPending: boolean;
 }) {
-  const { register, control, handleSubmit } = useForm({ defaultValues });
+  const { register, control, handleSubmit } = useForm({
+    defaultValues,
+    resolver: zodResolver(AccountFormSchema),
+  });
 
   const options = [
     { value: "Healthcare and Pharmaceuticals", label: "Healthcare and Pharmaceuticals" },

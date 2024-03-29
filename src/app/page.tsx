@@ -8,7 +8,7 @@ export default function Home() {
 
   React.useEffect(() => {
     router.replace("/settings");
-  }, []);
+  }, [router]);
 
   return null;
 }

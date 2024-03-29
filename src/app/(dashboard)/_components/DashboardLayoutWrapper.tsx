@@ -18,6 +18,7 @@ export function DashboardLayoutWrapper({
   React.useLayoutEffect(() => {
     const storedAccessToken = localStorage.getItem("accessToken");
     if (!storedAccessToken) login(`${window.location.origin}/auth/login`); // redirect to /auth/login for verification
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
