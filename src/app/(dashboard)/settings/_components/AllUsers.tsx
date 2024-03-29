@@ -88,7 +88,7 @@ function NameCell({ row }: TableCellProps<UserData>) {
   return (
     <Flex gap="2" alignItems="center">
       <Avatar w="30px" h="30px" name={name} src={picture} />
-      <Grid flexShrink="1">
+      <Grid flexShrink="1" gap={"4px"}>
         <Text color={"gray.900"} fontSize="md" noOfLines={1}>
           {name}
         </Text>
