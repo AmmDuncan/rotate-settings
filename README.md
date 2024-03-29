@@ -23,7 +23,7 @@ yarn
 
 Duplicate `.env.example` file and rename duplicate file `.env`.
 
-Update `NEXT_PUBLIC_API_URL` with base url
+Update `NEXT_PUBLIC_API_URL` in `.env` file with base url
 
 
 
