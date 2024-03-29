@@ -4,8 +4,7 @@ import { Tab, TabList, TabPanel, TabPanels, Tabs } from "@chakra-ui/tabs";
 import { Box, Text } from "@chakra-ui/react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-import { AccountSettings } from "./_components/AccountSettings";
-import { AllUsers } from "./_components/AllUsers";
+import { AccountSettings, AllUsers } from "./_components";
 import React from "react";
 
 export default function Settings() {
@@ -13,6 +12,12 @@ export default function Settings() {
   const router = useRouter();
   const activeTabIndex = Number(searchParams.get("tab") ?? 0);
   const tabs = React.useMemo(() => ["Account", "User Management"], []);
+
+  // Update page title
+  React.useEffect(() => {
+    document.title = `${tabs[activeTabIndex]} | Rotate Settings`;
+  }, [activeTabIndex, tabs]);
+
   function isActive(index: number) {
     return activeTabIndex === index;
   }
@@ -20,10 +25,6 @@ export default function Settings() {
   function handleTabChange(newValue: number) {
     router.replace(`${location.origin}${location.pathname}?tab=${newValue}`);
   }
-
-  React.useEffect(() => {
-    document.title = `${tabs[activeTabIndex]} | Rotate Settings`;
-  }, [activeTabIndex, tabs]);
 
   return (
     <Box py="27px" className="container">

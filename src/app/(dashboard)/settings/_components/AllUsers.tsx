@@ -6,14 +6,12 @@ import RelativeTime from "dayjs/plugin/relativeTime";
 import { useQuery } from "@tanstack/react-query";
 import { Avatar, Box, Flex, Grid, Text } from "@chakra-ui/react";
 
-import { UsersIcon } from "@/components/icons/UsersIcon";
-import { useServices } from "@/services/useServices";
+import { useServices } from "@/services";
+import { UsersIcon } from "@/components/icons";
+import { Loader, Table } from "@/components";
 
 import { UserData } from "@/types";
-import { Loader } from "@/components/Loader";
-import { Table } from "@/components/Table";
-import { Section } from "./Section";
-import { SectionHeader } from "./SectionHeader";
+import { Section, SectionHeader } from ".";
 
 dayjs.extend(RelativeTime);
 

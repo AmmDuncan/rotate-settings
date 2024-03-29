@@ -6,14 +6,11 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Controller, useForm } from "react-hook-form";
 import { Button, useToast } from "@chakra-ui/react";
 
-import { Section } from "./Section";
-import { Input } from "@/components/Input";
-import { useServices } from "@/services/useServices";
-import { Loader } from "@/components/Loader";
+import { Input, Loader } from "@/components";
+import { useServices } from "@/services";
 import { convertFileToBase64 } from "@/utils/helpers";
 
-import { SectionHeader } from "./SectionHeader";
-import { CompanyLogoInput } from "./CompanyLogoInput";
+import { Section, SectionHeader, CompanyLogoInput } from ".";
 
 const AccountFormSchema = z.object({
   display_name: z.string().min(1, "Company name is required"),

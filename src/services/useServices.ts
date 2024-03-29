@@ -2,6 +2,11 @@ import { httpClient } from "@/utils/http";
 import { CompanyData, UserData } from "@/types";
 import { AxiosResponse } from "axios";
 
+/**
+ * Returns an object containing methods to interact with company and user services.
+ *
+ * @returns An object with methods to interact with company and user services
+ */
 export function useServices() {
   return {
     company: {

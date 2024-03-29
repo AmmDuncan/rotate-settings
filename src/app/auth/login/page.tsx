@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
-import { useAuth } from "@/components/AuthContext";
+
 import { useRouter, useSearchParams } from "next/navigation";
 import { Grid, Text } from "@chakra-ui/react";
+
+import { useAuth } from "@/components/AuthContext";
 
 export default function Login() {
   const searchParams = useSearchParams();
@@ -23,10 +25,6 @@ export default function Login() {
       router.replace("/settings");
     }
   }, [accessToken, router]);
-
-  async function verifyCode(code: string) {
-    handleAuthCallback(code);
-  }
 
   return (
     <Grid h={"100vh"} placeContent={"center"}>

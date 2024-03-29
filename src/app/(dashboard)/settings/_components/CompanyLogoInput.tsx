@@ -1,8 +1,9 @@
-import { Flex, Grid, Text } from "@chakra-ui/react";
-import { ImagePlusIcon } from "@/components/icons/ImagePlusIcon";
-import Image from "next/image";
-import { BuildingIcon } from "@/components/icons/BuildingIcon";
 import React from "react";
+
+import Image from "next/image";
+import { Flex, Grid, Text } from "@chakra-ui/react";
+
+import { ImagePlusIcon, BuildingIcon } from "@/components/icons";
 
 export function CompanyLogoInput({
   value,

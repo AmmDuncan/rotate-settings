@@ -1,6 +1,8 @@
-import { AuthProvider } from "@/components/AuthContext";
 import React from "react";
-import { DashboardLayoutWrapper } from "./_components/DashboardLayoutWrapper";
+
+import { AuthProvider } from "@/components/AuthContext";
+
+import { DashboardLayoutWrapper } from "./_components";
 
 export default function Layout({
   children,
