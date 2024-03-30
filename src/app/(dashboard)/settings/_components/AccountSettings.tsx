@@ -5,7 +5,7 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { Controller, useForm } from "react-hook-form";
 import { Button, useToast } from "@chakra-ui/react";
 
-import { Input, Loader } from "@/components";
+import { Input, Loader, useAuth } from "@/components";
 import { useServices } from "@/services";
 import { convertFileToBase64 } from "@/utils/helpers";
 
@@ -14,12 +14,14 @@ import { AccountFormSchema, AccountFormDefaults, AccountFormInput } from "@/util
 import { zodResolver } from "@hookform/resolvers/zod";
 
 export function AccountSettings() {
+  const { accessToken } = useAuth();
   const queryClient = useQueryClient();
   const toast = useToast();
 
   const { company } = useServices();
 
   const { data, isLoading } = useQuery({
+    enabled: !!accessToken,
     queryKey: ["company"],
     queryFn: company.getCompany,
   });

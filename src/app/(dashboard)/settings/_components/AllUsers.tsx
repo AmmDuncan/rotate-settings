@@ -8,7 +8,7 @@ import { Avatar, Box, Flex, Grid, Text } from "@chakra-ui/react";
 
 import { useServices } from "@/services";
 import { UsersIcon } from "@/components/icons";
-import { Loader, Table } from "@/components";
+import { Loader, Table, useAuth } from "@/components";
 
 import { UserData } from "@/types";
 import { Section, SectionHeader } from ".";
@@ -25,9 +25,11 @@ type TableCellProps<T extends Record<string, any> = { id: string }> = Readonly<{
 }>;
 
 export function AllUsers() {
+  const { accessToken } = useAuth();
   const { user } = useServices();
 
   const { data, isLoading } = useQuery({
+    enabled: !!accessToken,
     queryKey: ["user"],
     queryFn: user.getUserList,
   });
